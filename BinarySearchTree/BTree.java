@@ -9,10 +9,21 @@ public class BTree
 
   public void AddNode( Node node )
   {
-    if( node.Key < Root.Key )
-      AddNode( node, Root.Left );
+    if( Root == null )
+      Root = node;
     else
-      AddNode( node, Root.Right );
+    {
+      if( node.Key < Root.Key )
+      {
+        AddNode( node, Root.Left );
+        System.out.println( "Left: "+Integer.toString( Root.Key ) );
+      }
+      else
+      {
+        AddNode( node, Root.Right );
+        System.out.println( "Right: "+Integer.toString( Root.Key ) );
+      }
+    }
   }
 
   private void AddNode( Node nodeToAdd, Node nodeToCompare )

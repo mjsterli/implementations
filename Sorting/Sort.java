@@ -33,4 +33,21 @@ public class Sort
 
     return i;
   }
+
+  public static void InsertionSort( int[] A, int size )
+  {
+    int i, j, temp;
+    for( i = 1; i < size; i++ )
+    {
+      j = i;
+      while( j > 0 && A[j-1] > A[j] )
+      {
+        temp = A[j-1];
+        A[j-1] = A[j];
+        A[j] = temp;
+
+        j -= 1;
+      }
+    }
+  }
 }

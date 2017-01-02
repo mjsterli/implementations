@@ -8,6 +8,7 @@ public class SortTest
   {
     int[] A = ReadInput();
 
+    System.out.println( "QuickSort" );
     System.out.println( "Before: ");
     for( int i = 0; i < size; i++ )
       System.out.print( Integer.toString( A[i] ) + " " );
@@ -39,5 +40,14 @@ public class SortTest
     {}
 
     return array;
+  }
+
+  static int[] CopyArray( int[] array, int size )
+  {
+    int[] copy = new int[size];
+    for( int i = 0; i < size; i++ )
+      copy[i] = array[i];
+
+    return copy;
   }
 }

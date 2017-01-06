@@ -19,12 +19,9 @@ public class BTreeTest
     String[] items = s.split(",");
     for( int i = 0; i < items.length; i++ )
     {
-      //System.out.print( items[i] + " ");
-      Node n = new Node( Integer.parseInt( items[i].trim() ) );
-      tree.AddNode( n );
+      System.out.println(items[i].trim());
+      tree.AddNode( Integer.parseInt( items[i].trim() ) );
     }
-    //System.out.println("");
-
     System.out.print( "PreOrder: " );
     PreOrder( tree.Root );
     System.out.println();

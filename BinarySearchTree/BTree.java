@@ -7,24 +7,30 @@ public class BTree
     Root = null;
   }
 
-  public void AddNode( Node node )
+  public void AddNode( int value )
   {
-    if( node.Key < Root.Key )
-      AddNode( node, Root.Left );
-    else
-      AddNode( node, Root.Right );
+    if( Root == null )
+      Root = new Node( value );
+    {
+      if( value < Root.Key )
+        Root.Left = AddNode( value, Root.Left );
+      else
+        Root.Right = AddNode( value, Root.Right );
+    }
   }
 
-  private void AddNode( Node nodeToAdd, Node nodeToCompare )
+  private Node AddNode( int value, Node nodeToCompare )
   {
     if( nodeToCompare == null )
-      nodeToCompare = nodeToAdd;
+      return new Node( value );
     else
     {
-      if( nodeToAdd.Key < nodeToCompare.Key )
-        AddNode( nodeToAdd, nodeToCompare.Left );
+      if( value < nodeToCompare.Key )
+        nodeToCompare.Left = AddNode( value, nodeToCompare.Left );
       else
-        AddNode( nodeToAdd, nodeToCompare.Right );
+        nodeToCompare.Right = AddNode( value, nodeToCompare.Right );
+
+      return nodeToCompare;
     }
   }
 }
